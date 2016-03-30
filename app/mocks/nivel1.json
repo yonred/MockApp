@@ -1,0 +1,126 @@
+{
+    "path": "/",
+    "parent": null,
+    "files": [
+        {
+            "path": "adros/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "andrew_l/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "dws-uat/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "dws/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "etl/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "inv-qa-co/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "mocks_andrew/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "mocks_qa_ltr/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "mocks_qa_rtl/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "mocks_uat_ltr/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "mocks_uat_rtl/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "nnainventory/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "os/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "prodnissan/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "qa-backup-all-streams/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "tck/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "tryme/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "uaenissan/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "uatnissan/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "uatrenault/",
+            "parent": null,
+            "isFile": false,
+            "content": null
+        }
+    ]
+}

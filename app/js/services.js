@@ -1,28 +1,30 @@
 angular.module('myApp.services', [])
-  .factory('ergastAPIservice', function($http) {
+  .factory('mocksAPIservice', function($http) {
 
-    var ergastAPI = {};
+    var mocksAPI = {},
+        serverPath = 'http://localhost:8080/',
+        testHeaders = {
+                    "Access-Control-Allow-Origin": "http://localhost:8000",
+                    "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
+                    "Access-Control-Allow-Headers": "X-Requested-With,content-type",
+                    "Access-Control-Allow-Credentials": true
+                };
 
-    ergastAPI.getDrivers = function() {
+    mocksAPI.getList = function(path) {
       return $http({
-        method: 'JSONP',
-        url: 'http://ergast.com/api/f1/2013/driverStandings.json?callback=JSON_CALLBACK'
+        method: "GET",
+        //url: "http://localhost:8080/getFolder?path=" + path,
+        url: "mocks/nivel1.json",
+        headers: testHeaders
       });
     }
 
-    ergastAPI.getDriverDetails = function(id) {
+    mocksAPI.deleteFolder = function(name) {
       return $http({
-        method: 'JSONP',
-        url: 'http://ergast.com/api/f1/2013/drivers/'+ id +'/driverStandings.json?callback=JSON_CALLBACK'
+        method: 'GET',
+        url: config.url + config.deleteFolderMethod + name
       });
     }
 
-    ergastAPI.getDriverRaces = function(id) {
-      return $http({
-        method: 'JSONP',
-        url: 'http://ergast.com/api/f1/2013/drivers/'+ id +'/results.json?callback=JSON_CALLBACK'
-      });
-    }
-
-    return ergastAPI;
+    return mocksAPI;
   });

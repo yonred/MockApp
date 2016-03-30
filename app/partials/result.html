@@ -1,18 +1,18 @@
 <section id="main">
-  <a href="./#/drivers"><- Back to drivers list</a>
+  <a href="./#/mocks"><- Back to mocks list</a>
   <nav id="secondary" class="main-nav">
-    <div class="driver-picture">
+    <div class="mock-picture">
       <div class="avatar">
-        <img ng-show="driver" src="img/drivers/{{driver.Driver.driverId}}.png" />
-        <img ng-show="driver" src="img/flags/{{driver.Driver.nationality}}.png" /><br/>
-        {{driver.Driver.givenName}} {{driver.Driver.familyName}}
+        <img ng-show="mock" src="img/mocks/{{mock.Mock.mockId}}.png" />
+        <img ng-show="mock" src="img/flags/{{mock.Mock.nationality}}.png" /><br/>
+        {{mock.mock.givenName}} {{mock.mock.familyName}}
       </div>
     </div>
-    <div class="driver-status">
-      Country: {{driver.Driver.nationality}}   <br/>
-      Team: {{driver.Constructors[0].name}}<br/>
-      Birth: {{driver.Driver.dateOfBirth}}<br/>
-      <a href="{{driver.Driver.url}}" target="_blank">Biography</a>
+    <div class="mock-status">
+      Country: {{mock.mock.nationality}}   <br/>
+      Team: {{mock.Constructors[0].name}}<br/>
+      Birth: {{mock.mock.dateOfBirth}}<br/>
+      <a href="{{mock.Mock.url}}" target="_blank">Biography</a>
     </div>
   </nav>
 

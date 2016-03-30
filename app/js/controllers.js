@@ -1,31 +1,44 @@
 angular.module('myApp.controllers', []).
 
-  /* Drivers controller */
-  controller('fileSystemController', function($scope, ergastAPIservice) {
-    $scope.nameFilter = null;
-    $scope.driversList = [];
-    $scope.searchFilter = function (driver) {
-        var re = new RegExp($scope.nameFilter, 'i');
-        return !$scope.nameFilter || re.test(driver.Driver.givenName) || re.test(driver.Driver.familyName);
-    };
+  /* mocks controller */
 
-    ergastAPIservice.getDrivers().success(function (response) {
-        //Digging into the response to get the relevant data
-        $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-    });
-  }).
+    controller('fileSystemController', function($scope, mocksAPIservice) {
+        var breads = [],
+            fileList = [];
 
-  /* Driver controller */
-  controller('driverController', function($scope, $routeParams, ergastAPIservice) {
-    $scope.id = $routeParams.id;
-    $scope.races = [];
-    $scope.driver = null;
+        $scope.currentFilesList = [];
+        $scope.breadList = [];
 
-    ergastAPIservice.getDriverDetails($scope.id).success(function (response) {
-        $scope.driver = response.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
-    });
+        mocksAPIservice.getList('/').success(function (response) {
+            // create breadcrumb
+            if (response.files[0].parent !== null) {
+                breads = response.files[0].parent.split('/')
+                breads.unshift('root');
+                breads.pop();
+                $scope.breadList = breads;
+            } else {
+                $scope.breadList.push('root');
+            }
 
-    ergastAPIservice.getDriverRaces($scope.id).success(function (response) {
-        $scope.races = response.MRData.RaceTable.Races;
-    });
-  });
+            // create data
+            fileList = response.files;
+
+            angular.forEach(fileList, function(value, key) {
+                if (value.isFile === false) {
+
+                } else if (value.isFile === true) {
+
+                }
+            });
+
+            // sort lists
+            $scope.currentFilesList = fileList;
+            console.log(response.files);
+            console.log(breads);
+
+            $scope.sort = function(keyname){
+        		$scope.sortKey = keyname;
+        		$scope.reverse = !$scope.reverse;
+        	}
+        });
+    })

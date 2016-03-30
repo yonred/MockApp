@@ -1,0 +1,30 @@
+{
+    "path": "adros/",
+    "parent": null,
+    "files": [
+        {
+            "path": "adros/_proxies/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "adros/v1-5/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "adros/v1/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "adros/v2/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        }
+    ]
+}

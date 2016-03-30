@@ -1,0 +1,42 @@
+{
+    "path": "adros/_proxies/",
+    "parent": "adros/",
+    "files": [
+        {
+            "path": "adros/_proxies/apigeeProxy1.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy10.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy2.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy3.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy8.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy9.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        }
+    ]
+}
