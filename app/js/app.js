@@ -1,8 +1,9 @@
-angular.module('myApp', [
-  'myApp.services',
-  'myApp.controllers',
-  'angularUtils.directives.dirPagination',
-  'ngRoute'
+var app = angular.module('myApp', [
+    'myApp.services',
+    'myApp.controllers',
+    'angularUtils.directives.dirPagination',
+    'ngRoute',
+    'flow'
 ])
 
 .constant('config', {
@@ -12,9 +13,17 @@ angular.module('myApp', [
     downloadObjectMethod: 'downloadObject/'
 })
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-	when("/results", {templateUrl: "partials/results.html", controller: "fileSystemController"}).
-	when("/results/:id", {templateUrl: "partials/result.html", controller: "fileSystemController"}).
-	otherwise({redirectTo: '/results'});
+.config(['$routeProvider', 'flowFactoryProvider', function($routeProvider, flowFactoryProvider) {
+    $routeProvider.
+    when("/results", {templateUrl: "partials/results.html", controller: "fileSystemController"}).
+    when("/results/:id", {templateUrl: "partials/result.html", controller: "fileSystemController"}).
+    otherwise({redirectTo: '/results'});
+
+    flowFactoryProvider.defaults = {
+        target: 'http://localhost:8080/uploadObject',
+        permanentErrors: [404, 500, 501],
+        maxChunkRetries: 1,
+        chunkRetryInterval: 5000,
+        simultaneousUploads: 4
+    };
 }]);

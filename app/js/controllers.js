@@ -1,4 +1,4 @@
-angular.module('myApp.controllers', []).
+angular.module('myApp.controllers', ['flow']).
 
   /* mocks controller */
 
@@ -37,8 +37,21 @@ angular.module('myApp.controllers', []).
             console.log(breads);
 
             $scope.sort = function(keyname){
-        		$scope.sortKey = keyname;
-        		$scope.reverse = !$scope.reverse;
-        	}
+                $scope.sortKey = keyname;
+                $scope.reverse = !$scope.reverse;
+            }
         });
-    })
+    }).
+
+    controller('UploadController', function ($scope) {
+        $scope.button = false;
+
+        $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+            $scope.button = true;
+        });
+
+        $scope.cancelUpload = function(keyname){
+            $scope.button = false;
+        }
+    });
+

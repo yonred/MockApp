@@ -1,0 +1,30 @@
+<div id="container-upload" class="container-upload" ng-controller="UploadController"  flow-prevent-drop
+      flow-drag-enter="style={border: '2px solid #337ab7'}"
+      flow-drag-leave="style={}"
+      ng-style="style">
+    <div class="upload-drop" flow-drop flow-drag-enter="class='upload-drag-over'" flow-drag-leave="class=''" ng-class="class">
+        Drag And Drop your file here
+    </div>
+
+    <div ng-show="button">
+        <table class="table table-hover table-bordered table-striped" flow-transfers>
+            <tr ng-repeat="file in transfers">
+               <td>{{file.name}} / {{file.size}}</td>
+              <td>
+                <div class="btn-group">
+                  <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
+                    Cancel
+                  </a>
+                  <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">
+                    Retry
+                  </a>
+                </div>
+              </td>
+            </tr>
+        </table>
+        <p>
+            <a class="btn btn-small btn-success" ng-click="$flow.resume()">Upload</a>
+            <a class="btn btn-small btn-info" ng-click="$flow.cancel();cancelUpload();">Cancel</a>
+        </p>
+    </div>
+</div>
