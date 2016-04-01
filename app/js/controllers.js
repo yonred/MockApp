@@ -21,14 +21,23 @@ angular.module('myApp.controllers', ['flow']).
             }
 
             // create data
-            fileList = response.files;
+            angular.forEach(response.files, function(value, key) {
+                var name,
+                    type;
 
-            angular.forEach(fileList, function(value, key) {
                 if (value.isFile === false) {
+
 
                 } else if (value.isFile === true) {
 
                 }
+
+                fileList.push({
+                    "path": name,
+                    "date1": "123",
+                    "date2": "34672381205",
+                    "type": type
+                });
             });
 
             // sort lists
@@ -54,4 +63,3 @@ angular.module('myApp.controllers', ['flow']).
             $scope.button = false;
         }
     });
-

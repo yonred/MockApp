@@ -14,7 +14,7 @@ angular.module('myApp.services', [])
       return $http({
         method: "GET",
         //url: "http://localhost:8080/getFolder?path=" + path,
-        url: "mocks/nivel1.json",
+        url: "mocks/nivel3.json",
         headers: testHeaders
       });
     }
