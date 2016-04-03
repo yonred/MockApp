@@ -45,18 +45,19 @@
     function dirPaginateDirective($compile, $parse, paginationService) {
 
         return  {
-            terminal: true,
-            multiElement: true,
-            compile: dirPaginationCompileFn
+            "terminal": true,
+            "multiElement": true,
+            "compile": dirPaginationCompileFn
         };
 
-        function dirPaginationCompileFn(tElement, tAttrs){
+        function dirPaginationCompileFn(tElement, tAttrs) {
 
             var expression = tAttrs.dirPaginate;
             // regex taken directly from https://github.com/angular/angular.js/blob/master/src/ng/directive/ngRepeat.js#L211
             var match = expression.match(/^\s*([\s\S]+?)\s+in\s+([\s\S]+?)(?:\s+track\s+by\s+([\s\S]+?))?\s*$/);
 
             var filterPattern = /\|\s*itemsPerPage\s*:[^|]*/;
+
             if (match[2].match(filterPattern) === null) {
                 throw 'pagination directive: the \'itemsPerPage\' filter must be set.';
             }
@@ -70,7 +71,7 @@
             var rawId = tAttrs.paginationId || DEFAULT_ID;
             paginationService.registerInstance(rawId);
 
-            return function dirPaginationLinkFn(scope, element, attrs){
+            return function dirPaginationLinkFn(scope, element, attrs) {
 
                 // Now that we have access to the `scope` we can interpolate any expression given in the paginationId attribute and
                 // potentially register a new ID if it evaluates to a different value than the rawId.
@@ -204,8 +205,8 @@
      */
     function noCompileDirective() {
         return {
-            priority: 5000,
-            terminal: true
+            "priority": 5000,
+            "terminal": true
         };
     }
 
@@ -218,16 +219,16 @@
         var numberRegex = /^\d+$/;
 
         return {
-            restrict: 'AE',
-            templateUrl: function(elem, attrs) {
+            "restrict": 'AE',
+            "templateUrl": function(elem, attrs) {
                 return attrs.templateUrl || paginationTemplate.getPath();
             },
-            scope: {
-                maxSize: '=?',
-                onPageChange: '&?',
-                paginationId: '=?'
+            "scope": {
+                "maxSize": '=?',
+                "onPageChange": '&?',
+                "paginationId": '=?'
             },
-            link: dirPaginationControlsLinkFn
+            "link": dirPaginationControlsLinkFn
         };
 
         function dirPaginationControlsLinkFn(scope, element, attrs) {
@@ -243,20 +244,22 @@
                 throw 'pagination directive: the pagination controls' + idMessage + 'cannot be used without the corresponding pagination directive.';
             }
 
-            if (!scope.maxSize) { scope.maxSize = 9; }
+            if (!scope.maxSize) {
+                scope.maxSize = 9;
+            }
             scope.directionLinks = angular.isDefined(attrs.directionLinks) ? scope.$parent.$eval(attrs.directionLinks) : true;
             scope.boundaryLinks = angular.isDefined(attrs.boundaryLinks) ? scope.$parent.$eval(attrs.boundaryLinks) : false;
 
             var paginationRange = Math.max(scope.maxSize, 5);
             scope.pages = [];
             scope.pagination = {
-                last: 1,
-                current: 1
+                "last": 1,
+                "current": 1
             };
             scope.range = {
-                lower: 1,
-                upper: 1,
-                total: 1
+                "lower": 1,
+                "upper": 1,
+                "total": 1
             };
 
             scope.$watch(function() {
@@ -270,7 +273,7 @@
             scope.$watch(function() {
                 return (paginationService.getItemsPerPage(paginationId));
             }, function(current, previous) {
-                if (current != previous && typeof previous !== 'undefined') {
+                if (current !== previous && typeof previous !== 'undefined') {
                     goToPage(scope.pagination.current);
                 }
             });
@@ -278,7 +281,7 @@
             scope.$watch(function() {
                 return paginationService.getCurrentPage(paginationId);
             }, function(currentPage, previousPage) {
-                if (currentPage != previousPage) {
+                if (currentPage !== previousPage) {
                     goToPage(currentPage);
                 }
             });
@@ -298,7 +301,9 @@
 
                     // if a callback has been set, then call it with the page number as an argument
                     if (scope.onPageChange) {
-                        scope.onPageChange({ newPageNumber : num });
+                        scope.onPageChange({
+                            "newPageNumber" : num
+                        });
                     }
                 }
             }
@@ -309,6 +314,7 @@
                 scope.pages = generatePagesArray(page, paginationService.getCollectionLength(paginationId), paginationService.getItemsPerPage(paginationId), paginationRange);
                 scope.pagination.current = page;
                 scope.pagination.last = scope.pages[scope.pages.length - 1];
+
                 if (scope.pagination.last < scope.pagination.current) {
                     scope.setCurrent(scope.pagination.last);
                 } else {
@@ -449,7 +455,7 @@
         this.registerInstance = function(instanceId) {
             if (typeof instances[instanceId] === 'undefined') {
                 instances[instanceId] = {
-                    asyncMode: false
+                    "asyncMode": false
                 };
                 lastRegisteredInstance = instanceId;
             }
@@ -511,7 +517,7 @@
 
         this.$get = function() {
             return {
-                getPath: function() {
+                "getPath": function() {
                     return templatePath;
                 }
             };

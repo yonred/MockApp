@@ -1,0 +1,29 @@
+{
+    "rules": {
+    	//indentation with 4 lanes, 
+    	//Variables should be lower case for short names and camelCase for longer names. Describe what the variable is, not what type of variable it is:
+	    "indent": [2, 4, {"VariableDeclarator": { "var": 1, "let": 1, "const": 1}, "SwitchCase": 1}],
+	    //Use of strict
+	    "strict": [2, "function"],
+	    //Objects should always use double quotes for keys, so that our JavaScript objects and JSON objects are all formatted in the same way.
+	    "quote-props": [2, "always"],
+	    //Disallow Bitwise Operators
+	    "no-bitwise": 2,
+	    //This rule does not allow gaps between the function identifier and application
+	    "no-spaced-func": 2,
+	    //Use one space before opening a brace
+	    "space-before-blocks": 2,
+	    //Enforce spaces inside of single line blocks
+	    "block-spacing": [2, "always"],
+	    //Else blocks should always appear on the same line as the closing bracket of the if block.
+	    "brace-style": [2, "1tbs", { "allowSingleLine": false }],
+	    //Disallow or enforce spaces inside of computed properties
+	    "computed-property-spacing": [2, "never"],
+	    //Variables should be lower case for short names and camelCase for longer names
+	    //"camelcase": 2,
+	    //Use triple-equals to prevent type coercion
+	    "eqeqeq": [2, "smart"],
+	    //optional
+	    "comma-style": [2, "last"]
+    }
+}
