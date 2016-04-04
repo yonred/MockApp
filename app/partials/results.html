@@ -34,7 +34,7 @@
 			</thead>
 			<tbody>
 				<tr dir-paginate="files in currentFilesList|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
-					<td>{{files.icon}} {{files.path}}</td>
+					<td>{{files.icon}} <a ng-click="openModal()">{{files.path}}</a></td>
 					<td>{{files.date1 | date:'yyyy-MM-dd'}}</td>
 					<td>{{files.date2 | date:'yyyy-MM-dd'}}</td>
                     <td>{{files.tool1}} {{files.tool2}}</td>
@@ -46,6 +46,8 @@
 			direction-links="true"
 			boundary-links="true" >
 		</dir-pagination-controls>
+
+    <div ng-include="'partials/modalResult.html'"></div>
 		<div flow-init ng-include="'partials/upload.html'"></div>
 
 	</div>
