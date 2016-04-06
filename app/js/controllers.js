@@ -2,7 +2,9 @@ angular.module('myApp.controllers', ['flow']).
 
   /* mocks controller */
 
-    controller('fileSystemController', function($scope, mocksAPIservice) {
+    controller('fileSystemController', function($scope, mocksAPIservice, $uibModal) {
+        "use strict";
+
         var breads = [],
             fileList = [];
 
@@ -55,10 +57,20 @@ angular.module('myApp.controllers', ['flow']).
                 $scope.sortKey = keyname;
                 $scope.reverse = !$scope.reverse;
             };
+
+            $scope.openModal = function () {
+
+                var modalInstance = $uibModal.open({
+                    "animation": true,
+                    "templateUrl": "resultContent.html",
+                    "controller": "FileController",
+                    "size": "lg"
+                });
+            };
         });
     }).
-
     controller('UploadController', function ($scope) {
+        "use strict";
         $scope.button = false;
 
         $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
@@ -67,5 +79,30 @@ angular.module('myApp.controllers', ['flow']).
 
         $scope.cancelUpload = function(keyname) {
             $scope.button = false;
+        };
+    }).
+    controller('FileController', function ($scope, $uibModalInstance) {
+        "use strict";
+
+        $scope.complex = {
+            "numbers": [1, 2, 3],
+            "boolean": true,
+            "null": null,
+            "number": 123,
+            "anObject": {
+                "a": 'b',
+                "c": 'd',
+                "e": 'f\"'
+            },
+            "string": 'Hello World',
+            "url": 'https://github.com/',
+            "date": 'Sun Aug 03 2014 20:46:55 GMT-0700 (PDT)'
+        };
+        $scope.ok = function () {
+            $uibModalInstance.close();
+        };
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
     });

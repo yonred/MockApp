@@ -2,6 +2,9 @@ var app = angular.module('myApp', [
     'myApp.services',
     'myApp.controllers',
     'angularUtils.directives.dirPagination',
+    'ui.bootstrap',
+    'ui.bootstrap.modal',
+    'jsonFormatter',
     'ngRoute',
     'flow'
 ])
