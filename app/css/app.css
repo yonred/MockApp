@@ -1,5 +1,5 @@
 .container-upload {
-    padding: 50px;
+    padding: 25px;
     background-color: #f9f9f9;
     border-top: 1px solid #ddd;
 }
@@ -15,4 +15,133 @@
     background-color: #337ab7;
     color: #fff;
     border: 2px #fff dashed;
+}
+
+.btn-icon {
+    padding: 0;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.btn-icon:active,
+.btn-icon:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.btn-icon:focus {
+    outline: 0 none !important;
+}
+.btn-icon .glyphicon {
+    -webkit-transition: color 0.1s ease;
+    -moz-transition: color 0.1s ease;
+    -o-transition: color 0.1s ease;
+    transition: color 0.1s ease;
+}
+
+.btn-icon span {
+    color: #000;
+}
+.btn-icon span:hover {
+    color: rgba(102, 102, 102, 0.9);
+}
+.btn-icon span.active {
+    color: #A6D478;
+}
+.btn-icon span.active:hover {
+    color: rgba(166, 212, 120, 0.9);
+}
+
+.breadcrumb {
+    display: inline-block;
+    float: right;
+    margin: 20px;
+}
+
+.headPage {
+    width: 100%;
+    display: block;
+    position: fixed;
+    height: 75px;
+    background: #f9f9f9;
+    z-index: 1000;
+    top: 0;
+}
+
+.headList {
+    width: 100%;
+    display: block;
+    position: fixed;
+    height: 75px;
+    background: #f3f3f3;
+    z-index: 1100;
+    top: 75px;
+}
+
+.navbar-brand {
+    font-size: 36px;
+    line-height:normal;
+}
+
+.searchFilter {
+    margin: 20px;
+    display: inline-block;
+}
+.mockList {
+    margin-top: 150px;
+    position: absolute;
+}
+
+.container-upload {
+    z-index: 1200;
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+dir-pagination-controls {
+    float: right;
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+table {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+table thead {
+    /* head takes the height it requires,
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    background-color: #fff;
+    z-index: 2100;
+}
+table tbody {
+    /* body takes all the remaining available space */
+    height: calc(100% - 340px);
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+    top: 37px;
+    position: relative;
+}
+table tbody tr {
+    width: 100%;
+}
+
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
 }

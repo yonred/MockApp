@@ -25,6 +25,54 @@
             "parent": "adros/",
             "isFile": false,
             "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy1.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy10.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy2.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/v1-5/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "adros/v1/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "adros/v2/",
+            "parent": "adros/",
+            "isFile": false,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy1.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
+        },
+        {
+            "path": "adros/_proxies/apigeeProxy10.json",
+            "parent": "adros/_proxies/",
+            "isFile": true,
+            "content": null
         }
     ]
 }
