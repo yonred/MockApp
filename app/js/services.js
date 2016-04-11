@@ -1,5 +1,6 @@
 angular.module('myApp.services', [])
     .factory('mocksAPIservice', function($http) {
+        'use strict';
 
         var mocksAPI = {},
             serverPath = 'http://localhost:8080/',
@@ -19,10 +20,33 @@ angular.module('myApp.services', [])
             });
         };
 
+        mocksAPI.downloadMock = function(path) {
+            return $http({
+                "method": "POST",
+                //url: "http://localhost:8080/downloadObject/",
+                "url": "mocks/nivel2.json",
+                "headers": testHeaders,
+                "data": {
+                    "fileName": path
+                }
+            });
+        };
+
         mocksAPI.deleteFolder = function(name) {
             return $http({
                 "method": "GET",
-                "url": config.url + config.deleteFolderMethod + name
+                //url: "http://localhost:8080/deleteFolder?fileName=" + path,
+                "url": "mocks/nivel2.json",
+                "headers": testHeaders
+            });
+        };
+
+        mocksAPI.deleteFile = function(name) {
+            return $http({
+                "method": "GET",
+                //url: "http://localhost:8080/deleteFolder?fileName=" + path,
+                "url": "mocks/nivel2.json",
+                "headers": testHeaders
             });
         };
 

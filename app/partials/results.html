@@ -24,6 +24,8 @@
     			boundary-links="true">
     		</dir-pagination-controls>
         </div>
+        <div class="alert alert-info" ng-show="vm.confirmClicked">You clicked confirm!</div>
+        <div class="alert alert-info" ng-show="vm.cancelClicked">You cancelled!</div>
 
 		<table class="mockList table table-striped table-hover">
 			<thead>
@@ -54,16 +56,24 @@
 					<td>{{files.date1 | date:'yyyy-MM-dd'}}</td>
 					<td>{{files.date2 | date:'yyyy-MM-dd'}}</td>
                     <td>
-                        <!-- <button class="btn btn-icon" ng-switch on="(files.type === 'mock')">
-                            <span class="glyphicon glyphicon-file" ng-class="{active: item.star}" ng-switch-when="true" ng-click="gotoPath(files.path)"></span>
-                            <span class="glyphicon glyphicon-folder-open" ng-class="{active: item.star}" ng-switch-default ng-click="gotoPath(files.path)"></span>
-                        </button> -->
-                        <button class="btn btn-icon">
-                            <span class="glyphicon glyphicon-trash" ng-class="{active: item.star}" ng-click="gotoPath(files.path)"></span>
+                        <button class="btn btn-icon" ng-switch on="(files.type === 'mock')">
+                            <span class="glyphicon glyphicon-trash"
+                                    ng-class="{active: item.star}"
+                                    ng-switch-when="true"
+                                    ng-click="deleteObject(files.path, files.type)">
+                            </span>
+                            <span class="glyphicon glyphicon-trash"
+                                    ng-class="{active: item.star}"
+                                    ng-click="deleteObject(files.path, files.type)"
+                                    ng-switch-default>
+                            </span>
                         </button>
+                        <!-- <button class="btn btn-icon">
+                            <span class="glyphicon glyphicon-trash" ng-class="{active: item.star}" ng-click="gotoPath(files.path)"></span>
+                        </button> -->
                          |
                         <button class="btn btn-icon" ng-switch on="(files.type === 'mock')">
-                            <span class="glyphicon glyphicon-cloud-download" ng-class="{active: item.star}" ng-switch-when="true" ng-click="gotoPath(files.path)"></span>
+                            <span class="glyphicon glyphicon-cloud-download" ng-class="{active: item.star}" ng-switch-when="true" ng-click="downloadFile(files.path)"></span>
                             <span class="glyphicon glyphicon-plus" ng-class="{active: item.star}" ng-switch-default ng-click="gotoPath(files.path)"></span>
                         </button>
                     </td>

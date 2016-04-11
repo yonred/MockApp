@@ -15,6 +15,7 @@
     "bootstrap": "~v3.3.6",
     "angular-bootstrap": "~1.2.5",
     "ng-flow": "~2.7.1",
-    "json-formatter": "~0.5.0"
+    "json-formatter": "~0.5.0",
+    "angular-bootstrap-confirm": "^1.0.0"
   }
 }

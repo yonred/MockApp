@@ -51,7 +51,6 @@ angular.module('myApp.controllers', ['flow']).
 
             // sort lists
             $scope.currentFilesList = fileList;
-            console.log(fileList);
 
             $scope.sort = function(keyname) {
                 $scope.sortKey = keyname;
@@ -59,7 +58,6 @@ angular.module('myApp.controllers', ['flow']).
             };
 
             $scope.openModal = function () {
-
                 var modalInstance = $uibModal.open({
                     "animation": true,
                     "templateUrl": "resultContent.html",
@@ -67,10 +65,47 @@ angular.module('myApp.controllers', ['flow']).
                     "size": "lg"
                 });
             };
+
+            $scope.deleteObject = function (path, type) {
+                var fileType = type;
+
+                swal({
+                    "title": "Are you sure?",
+                    "text": "You will not be able to recover this " + fileType + "!",
+                    "type": "warning",
+                    "showCancelButton": true,
+                    "confirmButtonColor": "#DD6B55",
+                    "confirmButtonText": "Yes, delete it!",
+                    "cancelButtonText": "No, cancel!",
+                    "closeOnConfirm": false,
+                    "closeOnCancel": false },
+
+                    function(isConfirm) {
+                        if (isConfirm) {
+                            swal("Deleted!", "Your " + fileType + " has been deleted.", "success");
+
+                            if (type === 'mock') {
+                                mocksAPIservice.deleteFile(path);
+                            } else {
+                                mocksAPIservice.deleteFolder(path);
+                            }
+                        } else {
+                            swal("Cancelled", "Your " + fileType + " is safe :)", "error");
+                        }
+                    }
+                );
+            };
+
+            $scope.downloadFile = function (path) {
+                mocksAPIservice.downloadMock(path).success(function (response) {
+                    swal("Downloaded!", "Your mock has been downloaded.", "success");
+                });
+            };
         });
     }).
     controller('UploadController', function ($scope) {
         "use strict";
+
         $scope.button = false;
 
         $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
@@ -100,6 +135,7 @@ angular.module('myApp.controllers', ['flow']).
         };
         $scope.ok = function () {
             $uibModalInstance.close();
+            swal("Good job!", "You mock has been added succesfully!", "success");
         };
 
         $scope.cancel = function () {
