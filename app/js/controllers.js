@@ -57,12 +57,19 @@ angular.module('myApp.controllers', ['flow']).
                 $scope.reverse = !$scope.reverse;
             };
 
-            $scope.openModal = function () {
+            $scope.openModal = function (path) {
+                $scope.path = path;
+
                 var modalInstance = $uibModal.open({
                     "animation": true,
                     "templateUrl": "resultContent.html",
                     "controller": "FileController",
-                    "size": "lg"
+                    "size": "lg",
+                    "resolve": {
+                        "path": function () {
+                            return path;
+                        }
+                    }
                 });
             };
 
@@ -116,29 +123,16 @@ angular.module('myApp.controllers', ['flow']).
             $scope.button = false;
         };
     }).
-    controller('FileController', function ($scope, $uibModalInstance) {
+    controller('FileController', function ($scope, $uibModalInstance, mocksAPIservice, path) {
         "use strict";
 
-        $scope.complex = {
-            "numbers": [1, 2, 3],
-            "boolean": true,
-            "null": null,
-            "number": 123,
-            "anObject": {
-                "a": 'b',
-                "c": 'd',
-                "e": 'f\"'
-            },
-            "string": 'Hello World',
-            "url": 'https://github.com/',
-            "date": 'Sun Aug 03 2014 20:46:55 GMT-0700 (PDT)'
-        };
+        mocksAPIservice.getContentFile('/').success(function (response) {
+            $scope.path = path;
+            $scope.complex = response;
+        });
+
         $scope.ok = function () {
             $uibModalInstance.close();
-            swal("Good job!", "You mock has been added succesfully!", "success");
         };
 
-        $scope.cancel = function () {
-            $uibModalInstance.dismiss('cancel');
-        };
     });

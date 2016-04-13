@@ -1,12 +1,12 @@
 <script type="text/ng-template" id="resultContent.html">
     <div class="modal-header">
-        <h3 class="modal-title">Im a modal!</h3>
+        <h3 class="modal-title">{{path}}</h3>
+        <span class="glyphicon glyphicon-cloud-download" ng-click=""></span>
     </div>
     <div class="modal-body">
-      <json-formatter json="complex" open="1"></json-formatter>
+      <json-formatter json="complex" open="5"></json-formatter>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
     </div>
 </script>

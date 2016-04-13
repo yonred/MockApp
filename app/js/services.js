@@ -20,6 +20,15 @@ angular.module('myApp.services', [])
             });
         };
 
+        mocksAPI.getContentFile = function(path) {
+            return $http({
+                "method": "GET",
+                //url: "http://localhost:8080/getFolder?path=" + path,
+                "url": "mocks/content.json",
+                "headers": testHeaders
+            });
+        };
+
         mocksAPI.downloadMock = function(path) {
             return $http({
                 "method": "POST",

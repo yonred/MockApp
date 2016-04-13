@@ -48,7 +48,7 @@
                 <tr dir-paginate="files in currentFilesList|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
 					<td>
                         <button class="btn btn-icon" ng-switch on="(files.type === 'mock')">
-                            <span class="glyphicon glyphicon-file" ng-class="{active: item.star}" ng-switch-when="true" <a ng-click="openModal()"> {{files.path}}</span>
+                            <span class="glyphicon glyphicon-file" ng-class="{active: item.star}" ng-switch-when="true" <a ng-click="openModal(files.path)"> {{files.path}}</span>
                             <span class="glyphicon glyphicon-folder-open" ng-class="{active: item.star}" ng-switch-default ng-click="gotoPath(files.path)"> {{files.path}}</span>
                         </button>
 
