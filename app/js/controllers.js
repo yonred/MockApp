@@ -2,7 +2,7 @@ angular.module('myApp.controllers', ['flow']).
 
   /* mocks controller */
 
-    controller('fileSystemController', function($scope, mocksAPIservice, $uibModal) {
+    controller('fileSystemController', function($scope, $rootScope, mocksAPIservice, $uibModal) {
         "use strict";
 
         var breads = [],
@@ -103,6 +103,11 @@ angular.module('myApp.controllers', ['flow']).
                 );
             };
 
+            $rootScope.$on("CallDownloadMethod", function(event, path) {
+                $scope.downloadFile(path);
+            });
+
+
             $scope.downloadFile = function (path) {
                 mocksAPIservice.downloadMock(path).success(function (response) {
                     swal("Downloaded!", "Your mock has been downloaded.", "success");
@@ -123,8 +128,13 @@ angular.module('myApp.controllers', ['flow']).
             $scope.button = false;
         };
     }).
-    controller('FileController', function ($scope, $uibModalInstance, mocksAPIservice, path) {
+    controller('FileController', function ($scope, $rootScope, $uibModalInstance, mocksAPIservice, path) {
         "use strict";
+
+
+        $scope.downloadFile = function(path) {
+            $rootScope.$broadcast("CallDownloadMethod", path);
+        };
 
         mocksAPIservice.getContentFile('/').success(function (response) {
             $scope.path = path;
