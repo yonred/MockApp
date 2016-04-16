@@ -101,7 +101,9 @@
     background-color: #f9f9f9;
     border-top: 1px solid #ddd;
 }
-
+.container-upload .table-hover  {
+    margin-bottom: 50px;
+}
 dir-pagination-controls {
     float: right;
     position: relative;
@@ -134,6 +136,7 @@ table tbody {
     top: 37px;
     position: relative;
 }
+
 table tbody tr {
     width: 100%;
 }
