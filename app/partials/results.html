@@ -74,7 +74,7 @@
                          |
                         <button class="btn btn-icon" ng-switch on="(files.type === 'mock')">
                             <span class="glyphicon glyphicon-cloud-download" ng-class="{active: item.star}" ng-switch-when="true" ng-click="downloadFile(files.path)"></span>
-                            <span class="glyphicon glyphicon-plus" ng-class="{active: item.star}" ng-switch-default ng-click="gotoPath(files.path)"></span>
+                            <span class="glyphicon glyphicon-plus" ng-class="{active: item.star}" ng-switch-default ng-click="createFolder()"></span>
                         </button>
                     </td>
 				</tr>

@@ -59,5 +59,14 @@ angular.module('myApp.services', [])
             });
         };
 
+        mocksAPI.createFolder = function(name) {
+            return $http({
+                "method": "GET",
+                //url: "http://localhost:8080/createFolder?folderName=" + name,
+                "url": "mocks/nivel2.json",
+                "headers": testHeaders
+            });
+        };
+
         return mocksAPI;
     });
