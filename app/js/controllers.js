@@ -113,6 +113,32 @@ angular.module('myApp.controllers', ['flow']).
                     swal("Downloaded!", "Your mock has been downloaded.", "success");
                 });
             };
+
+            $scope.createFolder = function () {
+                swal({
+                    "title": "Add folder!",
+                    "text": "Type your new folder's name:",
+                    "type": "input",
+                    "showCancelButton": true,
+                    "closeOnConfirm": false,
+                    "animation": "slide-from-top",
+                    "inputPlaceholder": "Folder_Name" },
+
+                    function(inputValue) {
+                        if (inputValue === false) return false;
+
+                        if (inputValue === "") {
+                            swal.showInputError("You need to type something!");
+                            return false;
+                        } else {
+                            var result = inputValue.split(" ").join("_");
+
+                            mocksAPIservice.createFolder(result).success(function (response) {
+                                swal("Nice!", "You new folder: " + result + " was created", "success");
+                            });
+                        }
+                    });
+            };
         });
     }).
     controller('UploadController', function ($scope) {
