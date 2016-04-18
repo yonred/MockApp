@@ -12,9 +12,8 @@
                <td>{{file.name}} / {{file.size}}</td>
               <td>
                 <div class="btn-group">
-                  <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
-                    Cancel
-                  </a>
+                  <span class="glyphicon glyphicon-trash" ng-click="file.cancel()">
+                  </span>
                   <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">
                     Retry
                   </a>
